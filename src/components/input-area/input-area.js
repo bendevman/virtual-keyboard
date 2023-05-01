@@ -15,7 +15,7 @@ export default class InputArea {
     this.inputTextarea.value = temp + key;
   }
 
-  init(element) {
-    element.appendChild(this.inputArea);
+  get InputArea() {
+    return this.InputArea;
   }
 }
