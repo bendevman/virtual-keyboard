@@ -80,7 +80,7 @@ export default class App {
     keyboard.addEventListener('mousedown', (event) => {
       event.preventDefault();
       const btn = event.target.closest('.key__button');
-      const { keyCode } = btn.dataset;
+      const { keyCode } = btn ? btn.dataset : '';
       keyList.forEach((keyItem) => {
         if (keyItem.code === keyCode) { keyHandler(keyItem, event); }
       });
