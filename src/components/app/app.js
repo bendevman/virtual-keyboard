@@ -1,23 +1,24 @@
 import './app.scss';
-import createInputArea from '../input-area/input-area';
-import createKeyboard from '../keyboard/keyboard';
+import InputArea from '../input-area/input-area';
+import Keyboard from '../keyboard/keyboard';
 
 const keys = require('./keys.json');
 
-export default function createApp() {
-  const app = document.createElement('div');
-  app.className = 'app';
+export default class App {
+  constructor() {
+    this.app = document.createElement('div');
+    this.app.className = 'app';
+    const inputArea = new InputArea();
+    inputArea.init(this.app);
+    const keyboard = new Keyboard(keys);
+    keyboard.init(this.app);
+    window.addEventListener('keydown', (event) => {
+      event.preventDefault();
+      inputArea.setValue(event.key);
+    });
+  }
 
-  const inputArea = createInputArea();
-  const textarea = inputArea.querySelector('.input-area__textarea');
-  const keyboard = createKeyboard(keys);
-  app.appendChild(inputArea);
-  app.appendChild(keyboard);
-
-  textarea.addEventListener('keydown', (event) => {
-    const temp = textarea.value;
-    textarea.value = temp + event.key;
-  });
-
-  return app;
+  init() {
+    document.getElementById('root').appendChild(this.app);
+  }
 }
