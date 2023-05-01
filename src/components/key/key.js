@@ -7,7 +7,12 @@ export default class Key {
     const keyButton = document.createElement('button');
     keyButton.className = 'key__button';
     keyButton.dataset.keyCode = keyItem.code;
-    keyButton.innerText = keyItem.key.en.default;
+    const template = `
+    <span class="key__value key__value-en-default key__value_active">${keyItem.key.en.default}</span>
+    <span class="key__value key__value-en-shift">${keyItem.key.en.shift}</span>
+    <span class="key__value key__value-ru-default">${keyItem.key.ru.default}</span>
+    <span class="key__value key__value-ru-shift">${keyItem.key.ru.shift}</span>`;
+    keyButton.innerHTML = template;
     this.key.appendChild(keyButton);
   }
 

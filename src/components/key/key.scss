@@ -26,6 +26,7 @@
     color: #fff;
     transition: 0.2s;
     border-radius: 5px;
+    padding: 5;
     &_ather {
       background: #1c232e;
       color: #808080;
@@ -37,6 +38,30 @@
     &:active {
       background: #5571ee;
       color: #808080;
+    }
+    &[data-key-code="Space"] {
+      min-width: 395px;
+    }
+    &[data-key-code="Backspace"] {
+      min-width: 190px;
+    }
+    &[data-key-code="Tab"] {
+      min-width: 80px;
+    }
+    &[data-key-code="CapsLock"] {
+      min-width: 90px;
+    }
+    &[data-key-code="Enter"] {
+      min-width: 150px;
+    }
+    &[data-key-code="ShiftLeft"] {
+      min-width: 120px;
+    }
+    &[data-key-code="ShiftRight"] {
+      min-width: 120px;
+    }
+    &[data-key-code="ControlRight"] {
+      min-width: 65px;
     }
   }
 }
